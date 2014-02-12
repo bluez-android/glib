@@ -90,4 +90,9 @@ LOCAL_SHARED_LIBRARIES := \
 
 LOCAL_MODULE := libglib
 
+# this will enable better backtraces in Valgrind
+ifneq (,$(filter userdebug eng,$(TARGET_BUILD_VARIANT)))
+LOCAL_STRIP_MODULE := false
+endif
+
 include $(BUILD_SHARED_LIBRARY)
